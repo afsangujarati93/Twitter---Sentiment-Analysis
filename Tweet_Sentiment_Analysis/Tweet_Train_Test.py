@@ -9,10 +9,10 @@ logger = lh.log_initializer()
 distinct_word_list = []
 
 
-def tweet_setup(train_dataset):
+def tweet_setup(raw_dataset):
     try:        
         tweets_array = []    
-        for (words, sentiment) in train_dataset:
+        for (words, sentiment) in raw_dataset:
             #splitting every tweet into list of words and ignoring those with length lesser than 3
             words_array = [e.lower() for e in words.split() if len(e) >= 3]
 #            print("\nwords_array: " + str(words_array))
@@ -40,9 +40,9 @@ def get_distinct_words_list(word_list):
         word_list = nltk.FreqDist(word_list)
         #getting only the words and not the count of occurance through keys    
         distinct_word_list = word_list.keys()
-        file= open("word_list.txt", "w+")
-        file.write(str(distinct_word_list))
-        file.close()
+#        file= open("word_list.txt", "w+")
+#        file.write(str(distinct_word_list))
+#        file.close()
         return distinct_word_list
     except Exception as Ex:
         logger.error("Exception occurred in the get_distinct_words_list method| Exception:" + str(Ex))
@@ -70,12 +70,20 @@ def tweet_train(training_dataset):
     except Exception as Ex:
         logger.error("Exception occurred in the tweet_train method| Exception:" + str(Ex))
 
-def tweet_test(tweet_classifier, test_dataset):
+def tweet_test_accuracy(tweet_classifier, test_dataset):
+    try:
+        test_accuracy = (nltk.classify.accuracy(tweet_classifier, test_dataset))*100
+        return test_accuracy
+    except Exception as Ex:
+        logger.error("Exception occurred in the tweet_test_accuracy method| Exception:" + str(Ex))
+
+
+def tweet_predict(tweet_classifier, tweet_list):
     try:
         tweet_sentiment_array = []
         pos_tweets = []
         neg_tweets = []
-        for tweet in test_dataset:
+        for tweet in tweet_list:
             sentiment = tweet_classifier.classify(label_tweet_array(tweet.split()))
             tweet_sentiment_array.append((tweet, sentiment))
             if sentiment == 'positive':
