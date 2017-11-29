@@ -40,7 +40,7 @@ def index(request):
                 print('\npos tweets percent:' + str(pos_tweet_percent))
                 print('\nneg tweets percent:' + str(neg_tweet_percent))
                 # pos_tweet_1 = str(pos_tweets)
-                print ('\npos_tweets' + str_pos_tweets)
+                # print ('\npos_tweets' + str_pos_tweets)
                  #return the received response from prediction back to the UI classying among positives and negatives
                 return render(request, 'analysis_ouput.html', {
                     'username' : user_name,

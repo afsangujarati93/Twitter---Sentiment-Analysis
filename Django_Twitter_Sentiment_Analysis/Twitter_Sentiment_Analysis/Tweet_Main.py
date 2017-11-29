@@ -28,7 +28,7 @@ class Tweet_Main:
 
 			#test your classifier against the testing dataset for accuracy
 			test_accuracy =  ttt.tweet_test_accuracy(tweet_classifier, testing_dataset)       
-
+			print("\ntest_accuracy:" + str(test_accuracy))
 			#pass the tweet list to your classifier for prediction
 			sentiment_array, pos_tweets, neg_tweets = ttt.tweet_predict(tweet_classifier, tweet_list)
 			# print("\nsentiment_array: " + str(sentiment_array))

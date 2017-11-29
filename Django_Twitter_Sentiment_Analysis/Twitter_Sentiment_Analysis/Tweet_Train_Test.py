@@ -63,7 +63,7 @@ class Tweet_Train_Test:
         except Exception as Ex:
             logger.error("Exception occurred in the get_distinct_words_list method| Exception:" + str(Ex))
      
-
+        
     def tweet_train(training_dataset):
         try:
             tweet_classifier = nltk.NaiveBayesClassifier.train(training_dataset)
