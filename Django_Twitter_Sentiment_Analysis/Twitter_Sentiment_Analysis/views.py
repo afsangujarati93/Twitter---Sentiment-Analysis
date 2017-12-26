@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from Twitter_Sentiment_Analysis.Log_Handler import Log_Handler as lh
 from django import forms
 from Twitter_Sentiment_Analysis.Tweet_Main import Tweet_Main as tm
+
 class NameForm(forms.Form):
     user_name = forms.CharField(label = '', max_length=100, widget=forms.TextInput(
         attrs={

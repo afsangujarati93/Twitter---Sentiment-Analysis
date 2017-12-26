@@ -26,7 +26,9 @@ SECRET_KEY = 'egcd(orxmn1_b&!vggx_uaiu09c#l#7hhan6c6vb3ng@g0o^u2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'twitter-sentiment-analysis2017.appspot.com'
+]
 
 
 # Application definition
