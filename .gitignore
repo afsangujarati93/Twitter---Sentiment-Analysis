@@ -6,3 +6,4 @@ __pycache__/
 .spyproject/
 *.csv
 *.txt
+!requirements.txt
