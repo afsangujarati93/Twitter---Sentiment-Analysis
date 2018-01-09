@@ -1,4 +1,4 @@
-entrypoint: gunicorn -b 0.0.0.0:$PORT Django_Twitter_Sentiment_Analysis.wsgi 
+entrypoint: gunicorn -b 0.0.0.0:$PORT Django_Twitter_Sentiment_Analysis.wsgi --timeout 180
 env: flex
 runtime: python
 runtime_config:
